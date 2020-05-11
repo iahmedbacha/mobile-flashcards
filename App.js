@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { connect } from 'react-redux';
 import { handleInitialData } from './redux/actions/shared';
-import AppNavigator from './navigation/Screen';
+import AppNavigator from './navigation/AppNavigator';
 
 const styles = StyleSheet.create({
   container: {

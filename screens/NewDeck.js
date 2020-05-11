@@ -19,6 +19,7 @@ function NewDeck(props) {
         questions: [],
       })
     );
+    props.navigation.navigate('Decks');
   };
   return (
     <View style={styles.container}>

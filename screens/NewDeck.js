@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { connect } from 'react-redux';
 import NewDeckForm from '../components/NewDeckForm';
-import { addDeck } from '../redux/actions/decks';
+import { handleAddDeck } from '../redux/actions/decks';
 
 const styles = StyleSheet.create({
   container: {
@@ -14,7 +14,7 @@ function NewDeck(props) {
   const newDeck = (title) => {
     const { dispatch } = props;
     dispatch(
-      addDeck({
+      handleAddDeck({
         title,
         questions: [],
       })

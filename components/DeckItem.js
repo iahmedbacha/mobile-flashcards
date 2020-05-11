@@ -12,6 +12,7 @@ export default function DeckItem({ item }) {
   return (
     <View style={styles.container}>
       <ListItem
+        key={item.title}
         title={item.title}
         subtitle={`${item.questions.length} cards`}
         bottomDivider

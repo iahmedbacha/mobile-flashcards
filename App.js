@@ -1,23 +1,43 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { Provider } from 'react-redux';
-import store from './redux/store';
+import React, { Component } from 'react';
+import { StyleSheet, View } from 'react-native';
+import { connect } from 'react-redux';
+import { handleInitialData } from './redux/actions/shared';
+import AppNavigator from './navigation/Screen';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
 
-export default function App() {
-  return (
-    <Provider store={store}>
+class App extends Component {
+  componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch(handleInitialData());
+  }
+
+  render() {
+    const { isLoaded } = this.props;
+    if (!isLoaded) {
+      return null;
+    }
+    return (
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
+        <AppNavigator />
       </View>
-    </Provider>
-  );
+    );
+  }
 }
+
+function mapStateToProps({ decks, questions }) {
+  return {
+    isLoaded: !(
+      Object.keys(decks).length === 0 &&
+      decks.constructor === Object &&
+      Object.keys(questions).length === 0 &&
+      questions.constructor === Object
+    ),
+  };
+}
+
+export default connect(mapStateToProps)(App);

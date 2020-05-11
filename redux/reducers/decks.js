@@ -10,7 +10,7 @@ export default function questions(state = {}, action) {
     case ADD_DECK:
       return {
         ...state,
-        [action.deck.title]: action.decks,
+        [action.deck.title]: action,
       };
     default:
       return state;

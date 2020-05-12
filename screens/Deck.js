@@ -28,6 +28,7 @@ export default function Deck(props) {
       />
       <Button
         title="Start Quiz"
+        disabled={navigation.state.params.deck.questions.length === 0}
         onPress={
           () =>
             props.navigation.navigate('Quiz', {

@@ -61,13 +61,13 @@ function generateUID() {
 
 export function getDecksData() {
   return new Promise((res) => {
-    setTimeout(() => res({ ...decks }), 1000);
+    setTimeout(() => res({ ...decks }), 200);
   });
 }
 
 export function getQuestionsData() {
   return new Promise((res) => {
-    setTimeout(() => res({ ...questions }), 1000);
+    setTimeout(() => res({ ...questions }), 200);
   });
 }
 
@@ -102,7 +102,7 @@ export function saveQuestionData(question) {
       };
 
       res(formattedQuestion);
-    }, 1000);
+    }, 200);
   });
 }
 
@@ -115,6 +115,6 @@ export function saveDeckData(deck) {
       };
 
       res(deck);
-    }, 1000);
+    }, 200);
   });
 }

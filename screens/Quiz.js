@@ -68,8 +68,13 @@ class Quiz extends Component {
         <Text>{`Question is: ${questions[count].question}`}</Text>
         {show && <Text>{`Answer is: ${questions[count].answer}`}</Text>}
         <Button title="Show Answer" onPress={() => this.handleShow()} />
-        <Button title="Correct" onPress={() => this.handleSubmit('correct')} />
         <Button
+          disabled={!show}
+          title="Correct"
+          onPress={() => this.handleSubmit('correct')}
+        />
+        <Button
+          disabled={!show}
           title="Incorrect"
           onPress={() => this.handleSubmit('incorrect')}
         />

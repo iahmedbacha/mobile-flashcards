@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { Button } from 'react-native-elements';
+import { clearLocalNotification, setLocalNotification } from '../utils/helpers';
 
 const styles = StyleSheet.create({
   container: {
@@ -27,6 +28,9 @@ class Quiz extends Component {
       count: prevState.count + 1,
       show: false,
     }));
+    if (result) {
+      clearLocalNotification().then(setLocalNotification);
+    }
   }
 
   handleShow() {

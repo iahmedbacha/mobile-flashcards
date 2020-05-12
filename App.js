@@ -3,6 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { connect } from 'react-redux';
 import { handleInitialData } from './redux/actions/shared';
 import AppNavigator from './navigation/AppNavigator';
+import { setLocalNotification } from './utils/helpers';
 
 const styles = StyleSheet.create({
   container: {
@@ -14,6 +15,7 @@ class App extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch(handleInitialData());
+    setLocalNotification();
   }
 
   render() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import DeckList from '../components/DeckList';
 
 const styles = StyleSheet.create({
@@ -8,10 +8,10 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function Decks() {
+export default function Decks(props) {
   return (
     <View style={styles.container}>
-      <DeckList />
+      <DeckList {...props} />
     </View>
   );
 }

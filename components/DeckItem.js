@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { ListItem } from 'react-native-elements';
+import NavigationService from '../navigation/NavigationService';
 
 const styles = StyleSheet.create({
   container: {
@@ -17,6 +18,7 @@ export default function DeckItem({ item }) {
         subtitle={`${item.questions.length} cards`}
         bottomDivider
         chevron
+        onPress={() => NavigationService.navigate('Deck', { deck: item })}
       />
     </View>
   );

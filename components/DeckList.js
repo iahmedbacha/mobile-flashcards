@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { SafeAreaView, View, FlatList, StyleSheet, Text } from 'react-native';
+import { SafeAreaView, FlatList, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import DeckItem from './DeckItem';
 
@@ -15,6 +15,7 @@ class DeckList extends Component {
     return (
       <SafeAreaView style={styles.container}>
         <FlatList
+          {...this.props}
           data={decks}
           renderItem={DeckItem}
           keyExtractor={(item) => item.title}

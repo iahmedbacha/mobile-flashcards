@@ -16,31 +16,37 @@ let decks = {
 let questions = {
   '8xf0y6ziyjabvozdd253nd': {
     id: '8xf0y6ziyjabvozdd253nd',
+    deckId: 'deck1',
     question: 'question1',
     answer: 'answer1',
   },
   '6ni6ok3ym7mf1p33lnez': {
     id: '6ni6ok3ym7mf1p33lnez',
+    deckId: 'deck1',
     question: 'question2',
     answer: 'answer2',
   },
   am8ehyc8byjqgar0jgpub9: {
     id: 'am8ehyc8byjqgar0jgpub9',
+    deckId: 'deck2',
     question: 'question3',
     answer: 'answer3',
   },
   loxhs1bqm25b708cmbf3g: {
     id: 'loxhs1bqm25b708cmbf3g',
+    deckId: 'deck2',
     question: 'question4',
     answer: 'answer4',
   },
   vthrdm985a262al8qx3do: {
     id: 'vthrdm985a262al8qx3do',
+    deckId: 'deck3',
     question: 'question5',
     answer: 'answer5',
   },
   xj352vofupe1dqz9emx13r: {
     id: 'xj352vofupe1dqz9emx13r',
+    deckId: 'deck3',
     question: 'question5',
     answer: 'answer5',
   },
@@ -65,9 +71,10 @@ export function getQuestionsData() {
   });
 }
 
-function formatQuestion({ question, answer }) {
+function formatQuestion({ deckId, question, answer }) {
   return {
     id: generateUID(),
+    deckId,
     question,
     answer,
   };
@@ -75,20 +82,22 @@ function formatQuestion({ question, answer }) {
 
 export function saveQuestionData(question) {
   return new Promise((res) => {
-    const { id } = question;
+    const { deckId } = question;
     const formattedQuestion = formatQuestion(question);
 
     setTimeout(() => {
       questions = {
         ...questions,
-        [formattedQuestion.id]: formattedQuestion,
+        [formattedQuestion.id]: {
+          ...formattedQuestion,
+        },
       };
 
       decks = {
         ...decks,
-        [id]: {
-          ...decks[id],
-          questions: decks[id].questions.concat([formattedQuestion.id]),
+        [deckId]: {
+          ...decks[deckId],
+          questions: decks[deckId].questions.concat([formattedQuestion.id]),
         },
       };
 

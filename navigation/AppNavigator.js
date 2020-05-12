@@ -10,6 +10,7 @@ import Decks from '../screens/Decks';
 import Deck from '../screens/Deck';
 import NewDeck from '../screens/NewDeck';
 import NewQuestion from '../screens/NewQuestion';
+import Quiz from '../screens/Quiz';
 
 const TopLevelNavigator = createBottomTabNavigator({
   Decks: {
@@ -17,6 +18,7 @@ const TopLevelNavigator = createBottomTabNavigator({
       Decks,
       Deck,
       NewQuestion,
+      Quiz,
     }),
   },
   NewDeck,

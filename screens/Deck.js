@@ -28,7 +28,13 @@ export default function Deck(props) {
       />
       <Button
         title="Start Quiz"
-        onPress={() => props.navigation.navigate('')}
+        onPress={
+          () =>
+            props.navigation.navigate('Quiz', {
+              deck: navigation.state.params.deck,
+            })
+          // eslint-disable-next-line react/jsx-curly-newline
+        }
       />
     </View>
   );

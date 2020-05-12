@@ -14,13 +14,6 @@ function NewQuestion(props) {
   const newQuestion = (question, answer) => {
     const { dispatch, navigation } = props;
     const { deckId } = navigation.state.params;
-    console.log(
-      JSON.stringify({
-        deckId,
-        question,
-        answer,
-      })
-    );
     dispatch(
       handleAddQuestion({
         deckId,
